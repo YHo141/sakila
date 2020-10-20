@@ -11,7 +11,6 @@ public class DBListener implements ServletContextListener {
         
     }
 
-
     public void contextDestroyed(ServletContextEvent sce)  { 
          
     }
