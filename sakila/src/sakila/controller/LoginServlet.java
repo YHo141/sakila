@@ -29,11 +29,11 @@ public class LoginServlet extends HttpServlet {
 		
 		Map<String, Object> map = statsService.getStats();
 		
-		Stats stats = (Stats)map.get("stats");
-		int totalCount = (Integer)map.get("totalCount");
+		Stats stats = (Stats)map.get("stats");				//	형변환
+		int totalCount = (Integer)map.get("totalCount");	//	형변환
 		
-		request.setAttribute("stats", stats);
-		request.setAttribute("totalCount", totalCount);
+		request.setAttribute("stats", stats);				//	오늘 접속자 수
+		request.setAttribute("totalCount", totalCount);		//	전체 접속자 수
 		
 		request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
 	}

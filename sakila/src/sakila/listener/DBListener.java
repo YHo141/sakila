@@ -15,7 +15,6 @@ public class DBListener implements ServletContextListener {
          
     }
 
-
     public void contextInitialized(ServletContextEvent sce)  { 
          System.out.println("DBListener.contextInitialized() ½ÇÇà");
          try {

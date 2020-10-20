@@ -10,6 +10,7 @@ public class DBUtil {
 		final String PASSWORD = "java1004";
 		
 		Connection conn = DriverManager.getConnection(URL,USER,PASSWORD);
+		
 		conn.setAutoCommit(false);
 		
 		return conn;

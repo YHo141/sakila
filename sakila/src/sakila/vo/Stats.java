@@ -16,7 +16,6 @@ public class Stats {
 	public void setCnt(long cnt) {
 		this.cnt = cnt;
 	}
-	
 	@Override
 	public String toString() {
 		return "State [day=" + day + ", cnt=" + cnt + "]";

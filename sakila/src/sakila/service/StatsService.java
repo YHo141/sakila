@@ -17,9 +17,7 @@ public class StatsService {
 	
 	
 	//	오늘의 방문자 수 dao매서드 호출 Stats + 총 방문자 수 dao매서드 호출 int -> MAP
-	//	Stats 
-	
-	
+
 	public Stats getToday() {
 		Calendar today = Calendar.getInstance();
 		SimpleDateFormat formater = new SimpleDateFormat("yyyy-MM-dd");
@@ -64,8 +62,6 @@ public class StatsService {
 			map.put("stats", returnStats);
 			map.put("totalCount", totalCount);
 			
-			System.out.println(totalCount + ": 카운트");
-			
 			conn.commit();
 			
 		}catch(Exception e) {
@@ -105,7 +101,6 @@ public class StatsService {
 			DBUtil dbUtil = new DBUtil();
 			conn = dbUtil.getConnection();
 			
-			//
 			Stats stats = this.getToday();
 			
 			if(statsDao.selectDay(conn, stats) == null) {

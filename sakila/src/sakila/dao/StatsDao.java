@@ -43,22 +43,6 @@ public class StatsDao {
 		stmt.executeUpdate();
 	}
 	
-	public Stats cntStats(Connection conn, Stats stats) throws Exception{
-		Stats returnStats = null;
-		PreparedStatement stmt = conn.prepareStatement(statsQuery.SELECT_STATS);
-		stmt.setString(1, stats.getDay());
-		
-		ResultSet rs = stmt.executeQuery();
-		
-		if(rs.next()){
-			returnStats = new Stats();
-			returnStats.setDay(rs.getString("day"));
-			returnStats.setCnt(rs.getInt("cnt"));
-		}
-		
-		return returnStats;
-	}
-	
 	
 	public int selectSumCount(Connection conn) throws Exception{
 		int returnStats = 1;
