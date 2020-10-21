@@ -12,15 +12,15 @@
 	<div>
 		오늘 접속자 수 : ${stats.cnt} / 전체 접속자 수 : ${totalCount}
 	</div>
-		<form>
+		<form method="post" action="${pageContext.request.contextPath }/LoginServlet">
 			<div>
-				<input type="text" placeholder="ID">
+				<input type="text" name = "id" placeholder="ID">
 			</div>
 			<div>
-				<input type="password" placeholder="PW">
+				<input type="password" name = "pw" placeholder="PW">
 			</div>
 			<div>
-				<button type="button">Log-in</button>
+				<button type="submit">Log-in</button>
 			</div>
 		</form>
 </body>
