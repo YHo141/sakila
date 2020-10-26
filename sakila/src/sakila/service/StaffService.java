@@ -11,7 +11,7 @@ public class StaffService {
 	
 	private StaffDao staffDao;
 	
-	public Staff getStaffByKey(int staffId, String password) {
+	public Staff getStaffByKey(String staffId, String password) {
 		staffDao = new StaffDao();
 		Staff returnStaff = null;
 		Connection conn = null;
@@ -23,7 +23,7 @@ public class StaffService {
 			System.out.println(conn + "conn 실행 확인");
 			
 			Staff staff = new Staff();
-			staff.setStaffId(staffId);
+			staff.setEmail(staffId);
 			staff.setPassword(password);
 			
 			returnStaff = staffDao.selectStaffByKey(conn, staff);

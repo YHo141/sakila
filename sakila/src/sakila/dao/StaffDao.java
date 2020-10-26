@@ -13,7 +13,7 @@ public class StaffDao {
 		Staff returnStaff = null;
 		
 		PreparedStatement stmt = conn.prepareStatement(StaffQuery.SELECT_STAFF_BY_KEY);
-		stmt.setInt(1, staff.getStaffId());
+		stmt.setString(1, staff.getEmail());
 		stmt.setString(2, staff.getPassword());
 		System.out.println(stmt + ": selectStaffByKet Äõ¸®¹® È®ÀÎ");
 		
@@ -21,7 +21,7 @@ public class StaffDao {
 		
 		if(rs.next()) {
 			returnStaff = new Staff();
-			returnStaff.setStaffId(rs.getInt("staff_id"));
+			returnStaff.setEmail(rs.getString("email"));
 			returnStaff.setUsername(rs.getString("username"));
 		}
 		stmt.close();

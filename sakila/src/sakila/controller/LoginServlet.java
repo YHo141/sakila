@@ -44,7 +44,7 @@ public class LoginServlet extends HttpServlet {
 	//로그인 액션으로 이동
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		int staffId = Integer.parseInt(request.getParameter("id"));
+		String staffId = request.getParameter("id");
 		String staffPw = request.getParameter("pw");
 		System.out.println(staffId + ": 사용자 로그인 아이디");
 		System.out.println(staffPw + ": 사용자 로그인 비밀번호");
@@ -60,10 +60,10 @@ public class LoginServlet extends HttpServlet {
 		if(returnStaff != null) {		// 항상 로그인 성공
 			//	session
 			HttpSession session = request.getSession();	
-			staffId = returnStaff.getStaffId();
+			String email = returnStaff.getEmail();
 			String username = returnStaff.getUsername();
 			
-			request.setAttribute("staffId", staffId);
+			request.setAttribute("email", email);
 			request.setAttribute("userName", username);
 			
 			//	indexServlet 포워딩
