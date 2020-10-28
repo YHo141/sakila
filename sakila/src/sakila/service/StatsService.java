@@ -16,7 +16,7 @@ public class StatsService {
 	private StatsDao statsDao;
 	
 	
-	//	¿À´ÃÀÇ ¹æ¹®ÀÚ ¼ö dao¸Å¼­µå È£Ãâ Stats + ÃÑ ¹æ¹®ÀÚ ¼ö dao¸Å¼­µå È£Ãâ int -> MAP
+	//	ì˜¤ëŠ˜ì˜ ë°©ë¬¸ì ìˆ˜ daoë§¤ì„œë“œ í˜¸ì¶œ Stats + ì´ ë°©ë¬¸ì ìˆ˜ daoë§¤ì„œë“œ í˜¸ì¶œ int -> MAP
 
 	public Stats getToday() {
 		Calendar today = Calendar.getInstance();
@@ -25,8 +25,8 @@ public class StatsService {
 		Stats stats = new Stats();
 		stats.setDay(day);
 		
-		System.out.println(today + ": today È®ÀÎ");
-		System.out.println(day + ": day È®ÀÎ");
+		System.out.println(today + ": today í™•ì¸");
+		System.out.println(day + ": day í™•ì¸");
 		
 		return stats;
 	}
@@ -41,12 +41,12 @@ public class StatsService {
 		try {
 			DBUtil dbUtil = new DBUtil();
 			conn = dbUtil.getConnection();
-			System.out.println(conn + ": service(conn) È®ÀÎ");
+			System.out.println(conn + ": service(conn) í™•ì¸");
 
 			
 			
 			Stats stats = this.getToday();
-			System.out.println(stats + ": service(getStats) È®ÀÎ");
+			System.out.println(stats + ": service(getStats) í™•ì¸");
 			returnStats = new Stats();
 			returnStats.setDay(stats.getDay());
 			
@@ -54,10 +54,10 @@ public class StatsService {
 			
 			returnStats = statsDao.selectDay(conn, returnStats);
 			int totalCount = statsDao.selectSumCount(conn);
-			//System.out.println(returnStats + ": sreturnStats È®ÀÎ");
+			//System.out.println(returnStats + ": sreturnStats í™•ì¸");
 			
-			System.out.println(returnStats + " : returnStats ÃÖÁ¾");
-			System.out.println(totalCount + " : totalCount ÃÖÁ¾");
+			System.out.println(returnStats + " : returnStats ìµœì¢…");
+			System.out.println(totalCount + " : totalCount ìµœì¢…");
 			
 			map.put("stats", returnStats);
 			map.put("totalCount", totalCount);
@@ -65,7 +65,7 @@ public class StatsService {
 			conn.commit();
 			
 		}catch(Exception e) {
-			System.out.println("service ¿¹¿Ü¹ß»ı");
+			System.out.println("service ì˜ˆì™¸ë°œìƒ");
 			try {
 				
 				conn.rollback();

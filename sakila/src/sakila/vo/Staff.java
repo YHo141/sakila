@@ -1,8 +1,8 @@
 package sakila.vo;
 
 public class Staff {
-	//	11°³ÀÇ ÇÊµå°¡ ÇÊ¿äÇÏ´Ù. (¼Ó¼º, ¸É¹ö º¯¼ö)
-	//	toString ¸Å¼­µå ¿À¹ö¶óÀÌµù
+	//	11ê°œì˜ í•„ë“œê°€ í•„ìš”í•˜ë‹¤. (ì†ì„±, ë§´ë²„ ë³€ìˆ˜)
+	//	toString ë§¤ì„œë“œ ì˜¤ë²„ë¼ì´ë”©
 	
 	private int staffId;
 	private String username;

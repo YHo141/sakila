@@ -27,11 +27,11 @@ public class LoginFilter implements Filter {
 
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		System.out.println("LoginFilter ½ÇÇà : session °Ë»ç");
+		System.out.println("LoginFilter ì‹¤í–‰ : session ê²€ì‚¬");
 		HttpSession session = ((HttpServletRequest)request).getSession();
 		if(session.getAttribute("loginStaff") == null) {
 			((HttpServletResponse)response).sendRedirect(((HttpServletRequest)request).getContextPath()+"/LoginServlet");
-			//	request.getServletContextPath()..getContextPath()+"/LoginServlet");		ÀÌ·¸°Ô »ç¿ëÇØµµ µÈ´Ù.(FM)
+			//	request.getServletContextPath()..getContextPath()+"/LoginServlet");
 			return;
 		}
 		chain.doFilter(request, response);

@@ -8,7 +8,7 @@ import sakila.query.statsQuery;
 import sakila.vo.Stats;
 
 public class StatsDao {
-	//	rs.next()¿¡ °ªÀÌ µé¾îÀÖÀ¸¸é true ¾øÀ¸¸é false
+	//	rs.next()ì— ê°’ì´ ë“¤ì–´ìˆìœ¼ë©´ true ì—†ìœ¼ë©´ false
 	public Stats selectDay(Connection conn, Stats stats) throws Exception{
 		Stats returnStats = null;
 		
@@ -48,8 +48,8 @@ public class StatsDao {
 		int returnStats = 1;
 		PreparedStatement stmt = conn.prepareStatement(statsQuery.SELECT_SUM_CNT);
 		ResultSet rs = stmt.executeQuery();
-		System.out.println(returnStats + ": Á¤»ó");
-		System.out.println(rs + ": select_sum_cnt Á¤»ó");
+		System.out.println(returnStats + ": ì •ìƒ");
+		System.out.println(rs + ": select_sum_cnt ì •ìƒ");
 		
 		if(rs.next()) {
 			returnStats = rs.getInt("SUM(cnt)");

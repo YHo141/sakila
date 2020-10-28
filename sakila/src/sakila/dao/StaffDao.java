@@ -15,7 +15,7 @@ public class StaffDao {
 		PreparedStatement stmt = conn.prepareStatement(StaffQuery.SELECT_STAFF_BY_KEY);
 		stmt.setString(1, staff.getEmail());
 		stmt.setString(2, staff.getPassword());
-		System.out.println(stmt + ": selectStaffByKet Äõ¸®¹® È®ÀÎ");
+		System.out.println(stmt + ": selectStaffByKet ê°’ í™•ì¸");
 		
 		ResultSet rs = stmt.executeQuery();
 		

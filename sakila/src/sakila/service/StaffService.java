@@ -20,7 +20,7 @@ public class StaffService {
 			DBUtil dbUtil = new DBUtil();
 			conn = dbUtil.getConnection();
 			
-			System.out.println(conn + "conn ½ÇÇà È®ÀÎ");
+			System.out.println(conn + "conn ì‹¤í–‰ í™•ì¸");
 			
 			Staff staff = new Staff();
 			staff.setEmail(staffId);
@@ -28,13 +28,13 @@ public class StaffService {
 			
 			returnStaff = staffDao.selectStaffByKey(conn, staff);
 			
-			System.out.println(returnStaff + "returnStaff °ª ¹Ş¾Æ¿À´ÂÁö È®ÀÎ");
+			System.out.println(returnStaff + "returnStaff ê°’ ë°›ì•„ì˜¤ëŠ”ì§€ í™•ì¸");
 			
 			
 			conn.commit();
 			
 		}catch (Exception e) {
-			System.out.println("service ¿¹¿Ü ¹ß»ı");
+			System.out.println("service ì˜ˆì™¸ ë°œìƒ");
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {

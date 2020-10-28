@@ -21,7 +21,7 @@ public class LoginServlet extends HttpServlet {
 	private StatsService statsService;
 	private StaffService staffService;
 	
-	//·Î±×ÀÎ ÆûÀ¸·Î ÀÌµ¿
+	// ë¡œê·¸ì¸ í¼ìœ¼ë¡œ ì´ë™
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		if(session.getAttribute("loginStaff") != null) {
@@ -32,32 +32,32 @@ public class LoginServlet extends HttpServlet {
 		
 		Map<String, Object> map = statsService.getStats();
 		
-		Stats stats = (Stats)map.get("stats");				//	Çüº¯È¯
-		int totalCount = (Integer)map.get("totalCount");	//	Çüº¯È¯
+		Stats stats = (Stats)map.get("stats");				//	í˜•ë³€í™˜
+		int totalCount = (Integer)map.get("totalCount");	//	í˜•ë³€í™˜
 		
-		request.setAttribute("stats", stats);				//	¿À´Ã Á¢¼ÓÀÚ ¼ö
-		request.setAttribute("totalCount", totalCount);		//	ÀüÃ¼ Á¢¼ÓÀÚ ¼ö
+		request.setAttribute("stats", stats);				//	ì˜¤ëŠ˜ ì ‘ì†ì ìˆ˜
+		request.setAttribute("totalCount", totalCount);		//	ì „ì²´ ì ‘ì†ì ìˆ˜
 		
 		request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
 	}
 
-	//·Î±×ÀÎ ¾×¼ÇÀ¸·Î ÀÌµ¿
+	// ë¡œê·¸ì¸ ì•¡ì…˜ìœ¼ë¡œ ì´ë™
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String staffId = request.getParameter("id");
 		String staffPw = request.getParameter("pw");
-		System.out.println(staffId + ": »ç¿ëÀÚ ·Î±×ÀÎ ¾ÆÀÌµğ");
-		System.out.println(staffPw + ": »ç¿ëÀÚ ·Î±×ÀÎ ºñ¹Ğ¹øÈ£");
+		System.out.println(staffId + ": ì‚¬ìš©ì ë¡œê·¸ì¸ ì•„ì´ë””");
+		System.out.println(staffPw + ": ì‚¬ìš©ì ë¡œê·¸ì¸ ë¹„ë°€ë²ˆí˜¸");
 		
 		
-		//	½ºÅÂÇÁ ·Î±×ÀÎ
+		// ìŠ¤íƒœí”„ ë¡œê·¸ì¸
 		staffService = new StaffService();
 		
 		Staff returnStaff = staffService.getStaffByKey(staffId, staffPw);
 		
-		System.out.println(returnStaff + "returnStaff ÀÔ·Â°ª È®ÀÎ");
+		System.out.println(returnStaff + "returnStaff ì…ë ¥ê°’ í™•ì¸");
 		
-		if(returnStaff != null) {		// Ç×»ó ·Î±×ÀÎ ¼º°ø
+		if(returnStaff != null) {		// í•­ìƒ ë¡œê·¸ì¸ ì„±ê³µ
 			//	session
 			HttpSession session = request.getSession();	
 			String email = returnStaff.getEmail();
@@ -66,12 +66,12 @@ public class LoginServlet extends HttpServlet {
 			request.setAttribute("email", email);
 			request.setAttribute("userName", username);
 			
-			//	indexServlet Æ÷¿öµù
+			//	indexServlet í¬ì›Œë”©
 			session.setAttribute("id", staffId);
 			session.setAttribute("loginStaff", username);
 			
 			response.sendRedirect(request.getContextPath() + "/auth/IndexServlet");
-			System.out.println("·Î±×ÀÎ ¼º°ø");
+			System.out.println("ë¡œê·¸ì¸ ì„±ê³µ");
 			return;
 		
 		}

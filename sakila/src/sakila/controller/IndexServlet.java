@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 public class IndexServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// ÇÊÅÍ
+		// í•„í„°
 		request.getRequestDispatcher("/WEB-INF/views/auth/index.jsp").forward(request, response);
 	}
 
