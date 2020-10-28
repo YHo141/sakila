@@ -26,7 +26,7 @@
 	<h2>CustomerList 페이지</h2>
 	<table id="staff">
 				<tr>
-					<td rowspan="2"><a href="${pageContext.request.contextPath}/auth/StaffListServlet" class='fas fa-user-circle' style='font-size:60px'></a></td>
+					<td rowspan="2"><a href="#" class='fas fa-user-circle' style='font-size:60px'></a></td>
 					<td>서울 지점</td>
 				</tr>
 	</table>
@@ -87,20 +87,22 @@
 							<table class="table">
 								<thead class="thead-dark">
 									<tr>
-										<th>순번</th>
+										<th>닉네임</th>
 										<th>이름</th>
 										<th>연락처</th>
-										<th>활성여부</th>
+										<th>주소</th>
+										<th>이메일</th>
 									</tr>
 								</thead>
 								
 								<tbody>
 									<c:forEach var="l" items="${list}">
 										<tr>
-											<td>${l.customerId}</td>
-											<td>${l.customerName}</td>
-											<td>${l.customerPhone}</td>
-											<td>${l.customerNotes}</td>
+											<td>${l.staffusername}</td>
+											<td>${l.staffName}</td>
+											<td>${l.staffphone}</td>
+											<td>${l.staffAddress}</td>
+											<td>${l.staffEmail}</td>
 										</tr>
 									</c:forEach>
 								</tbody>
