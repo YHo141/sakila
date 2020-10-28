@@ -11,7 +11,7 @@
         <meta name="keywords" content="" />
         <meta name="description" content="" />
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>index.jsp</title>
+<title>CustomerList.jsp</title>
         <link href="/sakila/sakilaStyle.css" rel="stylesheet" type="text/css" />
         <link href="http://fonts.googleapis.com/css?family=Arvo" rel="stylesheet" type="text/css" />
         <script src='https://kit.fontawesome.com/a076d05399.js'></script>
@@ -23,7 +23,7 @@
 <div id="outer">
 <div id="main">
 <div id="sidebar">
-	<h2>Index 페이지</h2>
+	<h2>CustomerList 페이지</h2>
 	<table id="staff">
 				<tr>
 					<td rowspan="2"><a href="#" class='fas fa-user-circle' style='font-size:60px'></a></td>
@@ -81,9 +81,30 @@
 	</ul>
 	
 </div>
-		<div id="content">
-			<h2>index</h2>
-				index페이지 내용 넣는곳입니다.
+		<div id="content" class="table-dark">
+			<h2>Customer List</h2>
+							
+							<table class="table">
+								<thead class="thead-dark">
+									<tr>
+										<th>순번</th>
+										<th>이름</th>
+										<th>연락처</th>
+										<th>활성여부</th>
+									</tr>
+								</thead>
+								
+								<tbody>
+									<c:forEach var="l" items="${list}">
+										<tr>
+											<td>${l.customerId}</td>
+											<td>${l.customerName}</td>
+											<td>${l.customerPhone}</td>
+											<td>${l.customerNotes}</td>
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
 		
 			<br class="clear" />
 		</div>
