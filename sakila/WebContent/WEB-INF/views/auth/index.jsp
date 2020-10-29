@@ -27,7 +27,7 @@
 	<table id="staff">
 				<tr>
 					<td rowspan="2"><a href="${pageContext.request.contextPath}/auth/StaffListServlet" class='fas fa-user-circle' style='font-size:60px'></a></td>
-					<td>서울 지점</td>
+					<td>${storeId}지점</td>
 				</tr>
 	</table>
 

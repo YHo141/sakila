@@ -5,6 +5,12 @@ public class Staff {
 	//	toString 매서드 오버라이딩
 	
 	private int staffId;
+	private String firstName;
+	private String lastName;
+	private String addressId;
+	private String picture;
+	private int storeId;
+	private int active;
 	private String username;
 	private String password;
 	private String email;
@@ -34,9 +40,48 @@ public class Staff {
 		this.password = password;
 	}
 	
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	public String getAddressId() {
+		return addressId;
+	}
+	public void setAddressId(String addressId) {
+		this.addressId = addressId;
+	}
+	public String getPicture() {
+		return picture;
+	}
+	public void setPicture(String picture) {
+		this.picture = picture;
+	}
+	public int getStoreId() {
+		return storeId;
+	}
+	public void setStoreId(int storeId) {
+		this.storeId = storeId;
+	}
+	public int getActive() {
+		return active;
+	}
+	public void setActive(int active) {
+		this.active = active;
+	}
+	
 	@Override
 	public String toString() {
-		return "Staff [staffId=" + staffId + ", username=" + username + ", password=" + password + ", email=" + email + "]";
+		return "Staff [staffId=" + staffId + ", firstName=" + firstName + ", lastName=" + lastName + ", addressId="
+				+ addressId + ", picture=" + picture + ", storeId=" + storeId + ", active=" + active + ", username="
+				+ username + ", password=" + password + ", email=" + email + "]";
 	}
 	
 }

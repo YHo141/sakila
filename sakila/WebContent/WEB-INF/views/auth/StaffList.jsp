@@ -23,11 +23,11 @@
 <div id="outer">
 <div id="main">
 <div id="sidebar">
-	<h2>CustomerList 페이지</h2>
+	<h2>Sakila Movie</h2>
 	<table id="staff">
 				<tr>
 					<td rowspan="2"><a href="#" class='fas fa-user-circle' style='font-size:60px'></a></td>
-					<td>서울 지점</td>
+					<td>${storeId}지점</td>
 				</tr>
 	</table>
 
@@ -82,7 +82,7 @@
 	
 </div>
 		<div id="content" class="table-dark">
-			<h2>Customer List</h2>
+			<h2>관리자 정보</h2>
 							
 							<table class="table">
 								<thead class="thead-dark">

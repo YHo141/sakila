@@ -44,16 +44,16 @@ public class LoginServlet extends HttpServlet {
 	// 로그인 액션으로 이동
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String staffId = request.getParameter("id");
-		String staffPw = request.getParameter("pw");
-		System.out.println(staffId + ": 사용자 로그인 아이디");
-		System.out.println(staffPw + ": 사용자 로그인 비밀번호");
+		String id = request.getParameter("id");
+		String pw = request.getParameter("pw");
+		System.out.println(id + ": 사용자 로그인 아이디");
+		System.out.println(pw + ": 사용자 로그인 비밀번호");
 		
 		
 		// 스태프 로그인
 		staffService = new StaffService();
 		
-		Staff returnStaff = staffService.getStaffByKey(staffId, staffPw);
+		Staff returnStaff = staffService.getStaffByKey(id, pw);
 		
 		System.out.println(returnStaff + "returnStaff 입력값 확인");
 		
@@ -62,12 +62,17 @@ public class LoginServlet extends HttpServlet {
 			HttpSession session = request.getSession();	
 			String email = returnStaff.getEmail();
 			String username = returnStaff.getUsername();
+			int staffId = returnStaff.getStaffId();
+			int storeId = returnStaff.getStoreId();
 			
+			request.setAttribute("staffId", staffId);
+			request.setAttribute("storeId", storeId);
 			request.setAttribute("email", email);
 			request.setAttribute("userName", username);
-			
+
 			//	indexServlet 포워딩
-			session.setAttribute("id", staffId);
+			session.setAttribute("staffId", staffId);
+			session.setAttribute("storeId", storeId);
 			session.setAttribute("loginStaff", username);
 			
 			response.sendRedirect(request.getContextPath() + "/auth/IndexServlet");

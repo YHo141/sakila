@@ -15,7 +15,7 @@ public class StaffListService {
 		this.staffListDao = staffListDao;
 	}
 	
-	public ArrayList<StaffList> getStaffList(){
+	public ArrayList<StaffList> getStaffList(int staffId){
 		
 		ArrayList<StaffList> list = new ArrayList<StaffList>();
 		Connection conn = null;
@@ -24,7 +24,7 @@ public class StaffListService {
 			DBUtil dbUtil = new DBUtil();
 			conn = dbUtil.getConnection();
 			
-			list = staffListDao.selectStaffList(conn);
+			list = staffListDao.selectStaffList(conn, staffId);
 			System.out.println(list + "list 값");
 			
 			conn.commit();
