@@ -1,6 +1,7 @@
 package sakila.vo;
 
 public class StaffList {
+	private int StaffId;
 	private String Staffusername;
 	private String StaffName;
 	private String Staffphone;
@@ -9,6 +10,12 @@ public class StaffList {
 	private String StaffCountry;
 	private String StaffEmail;
 	
+	public int getStaffId() {
+		return StaffId;
+	}
+	public void setStaffId(int staffId) {
+		StaffId = staffId;
+	}
 	public String getStaffusername() {
 		return Staffusername;
 	}
@@ -55,9 +62,9 @@ public class StaffList {
 	
 	@Override
 	public String toString() {
-		return "StaffList [Staffusername=" + Staffusername + ", StaffName=" + StaffName + ", Staffphone=" + Staffphone
-				+ ", StaffAddress=" + StaffAddress + ", StaffCity=" + StaffCity + ", StaffCountry=" + StaffCountry
-				+ ", StaffEmail=" + StaffEmail + "]";
+		return "StaffList [StaffId=" + StaffId + ", Staffusername=" + Staffusername + ", StaffName=" + StaffName
+				+ ", Staffphone=" + Staffphone + ", StaffAddress=" + StaffAddress + ", StaffCity=" + StaffCity
+				+ ", StaffCountry=" + StaffCountry + ", StaffEmail=" + StaffEmail + "]";
 	}
 
 }

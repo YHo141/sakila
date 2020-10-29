@@ -52,28 +52,20 @@ public class LoginServlet extends HttpServlet {
 		
 		// 스태프 로그인
 		staffService = new StaffService();
+		Staff staff = new Staff();
+		staff.setEmail(id);
+		staff.setPassword(pw);
 		
-		Staff returnStaff = staffService.getStaffByKey(id, pw);
+		Staff returnStaff = staffService.getStaffByKey(staff);
 		
 		System.out.println(returnStaff + "returnStaff 입력값 확인");
 		
 		if(returnStaff != null) {		// 항상 로그인 성공
 			//	session
-			HttpSession session = request.getSession();	
-			String email = returnStaff.getEmail();
-			String username = returnStaff.getUsername();
-			int staffId = returnStaff.getStaffId();
-			int storeId = returnStaff.getStoreId();
-			
-			request.setAttribute("staffId", staffId);
-			request.setAttribute("storeId", storeId);
-			request.setAttribute("email", email);
-			request.setAttribute("userName", username);
+			HttpSession session = request.getSession();
 
 			//	indexServlet 포워딩
-			session.setAttribute("staffId", staffId);
-			session.setAttribute("storeId", storeId);
-			session.setAttribute("loginStaff", username);
+			session.setAttribute("loginStaff", returnStaff);
 			
 			response.sendRedirect(request.getContextPath() + "/auth/IndexServlet");
 			System.out.println("로그인 성공");

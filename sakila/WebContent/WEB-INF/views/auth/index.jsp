@@ -27,12 +27,12 @@
 	<table id="staff">
 				<tr>
 					<td rowspan="2"><a href="${pageContext.request.contextPath}/auth/StaffListServlet" class='fas fa-user-circle' style='font-size:60px'></a></td>
-					<td>${storeId}지점</td>
+					<td>${loginStaff.storeId}지점</td>
 				</tr>
 	</table>
 
 		<div>
-			<span>${loginStaff}</span>관리자님
+			<span>${loginStaff.username}</span>관리자님
 		</div>
 
 	<div>

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import sakila.dao.StaffListDao;
 import sakila.service.StaffListService;
+import sakila.vo.Staff;
 import sakila.vo.StaffList;
 
 
@@ -24,15 +25,20 @@ public class StaffListServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		StaffListDao staffListDao = new StaffListDao();
 		staffListService = new StaffListService(staffListDao);
-		Object ob = session.getAttribute("staffId");
-		System.out.println(ob+"세션 리스트 확인");
 		
-		int staffId = (Integer)ob;
-		System.out.println(staffId+"스태프 아이디 확인");
+		StaffList staffList = new StaffList();
 		
-		ArrayList<StaffList> list = staffListService.getStaffList(staffId);
+
+		Staff staff = (Staff)session.getAttribute("loginStaff");
+		System.out.println(staff+"세션 리스트 확인");
 		
-		request.setAttribute("list", list);
+		staffList.setStaffId(staff.getStaffId());
+		
+		StaffList returnStaff = staffListService.getStaffList(staffList);
+		System.out.println(returnStaff+"스태프 아이디 확인");
+		
+		
+		request.setAttribute("staffList", returnStaff);
 		
 		request.getRequestDispatcher("/WEB-INF/views/auth/StaffList.jsp").forward(request, response);
 	}

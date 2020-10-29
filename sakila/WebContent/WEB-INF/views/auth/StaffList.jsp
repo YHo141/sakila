@@ -27,12 +27,12 @@
 	<table id="staff">
 				<tr>
 					<td rowspan="2"><a href="#" class='fas fa-user-circle' style='font-size:60px'></a></td>
-					<td>${storeId}지점</td>
+					<td>${loginStaff.storeId}지점</td>
 				</tr>
 	</table>
 
 		<div>
-			<span>${loginStaff}</span>관리자님
+			<span>${loginStaff.username}</span>관리자님
 		</div>
 
 	<div>
@@ -96,15 +96,13 @@
 								</thead>
 								
 								<tbody>
-									<c:forEach var="l" items="${list}">
 										<tr>
-											<td>${l.staffusername}</td>
-											<td>${l.staffName}</td>
-											<td>${l.staffphone}</td>
-											<td>${l.staffAddress}</td>
-											<td>${l.staffEmail}</td>
+											<td>${staffList.staffusername}</td>
+											<td>${staffList.staffName}</td>
+											<td>${staffList.staffphone}</td>
+											<td>${staffList.staffAddress}</td>
+											<td>${staffList.staffEmail}</td>
 										</tr>
-									</c:forEach>
 								</tbody>
 							</table>
 		

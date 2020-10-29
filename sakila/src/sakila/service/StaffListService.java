@@ -15,17 +15,15 @@ public class StaffListService {
 		this.staffListDao = staffListDao;
 	}
 	
-	public ArrayList<StaffList> getStaffList(int staffId){
-		
-		ArrayList<StaffList> list = new ArrayList<StaffList>();
+	public StaffList getStaffList(StaffList staffList){
+		StaffList returnStaffList = null;
 		Connection conn = null;
 		
 		try {
 			DBUtil dbUtil = new DBUtil();
 			conn = dbUtil.getConnection();
 			
-			list = staffListDao.selectStaffList(conn, staffId);
-			System.out.println(list + "list 값");
+			returnStaffList = staffListDao.selectStaffList(conn, staffList);
 			
 			conn.commit();
 		}catch (Exception e) {
@@ -45,6 +43,6 @@ public class StaffListService {
 		}
 		
 		
-		return list;
+		return returnStaffList;
 	}
 }
